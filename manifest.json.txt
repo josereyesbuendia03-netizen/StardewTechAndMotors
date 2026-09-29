@@ -1,0 +1,12 @@
+
+
+{
+  "Name": "Stardew Tech & Motors Expansion",
+  "Author": "Jose Reyes",
+  "Version": "1.0.0-beta",
+  "Description": "Feria Tecnologica en la playa y Taller de Motos custom para Stardew Valley.",
+  "UniqueID": "JoseReyes.StardewTechAndMotors",
+  "EntryDll": "StardewTechAndMotors.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [ "Patreon:JoseReyes" ]
+}
