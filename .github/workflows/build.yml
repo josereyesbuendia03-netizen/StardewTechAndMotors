@@ -19,13 +19,12 @@ jobs:
         dotnet-version: '6.0.x'
 
     - name: Build Mod
-      run: dotnet build StardewTechAndMotors.csproj -c Release
+      run: dotnet build StardewTechAndMotors.csproj -c Release /p:EnableModZip=false /p:EnableModDeploy=false /p:IgnoreGamePathPrompts=true
 
     - name: Prepare Mod Zip
       run: |
         mkdir -p StardewTechAndMotors
-        cp bin/Release/net6.0/StardewTechAndMotors.dll StardewTechAndMotors/
-        cp bin/Release/net6.0/StardewTechAndMotors.pdb StardewTechAndMotors/ || true
+        cp bin/Release/net6.0/StardewTechAndMotors.dll StardewTechAndMotors/ || true
         cp manifest.json StardewTechAndMotors/
         zip -r StardewTechAndMotors.zip StardewTechAndMotors/
 
