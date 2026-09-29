@@ -1,5 +1,3 @@
-
-
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -8,6 +6,9 @@
     <Nullable>enable</Nullable>
     <AssemblyName>StardewTechAndMotors</AssemblyName>
     <RootNamespace>StardewTechAndMotors</RootNamespace>
+    <EnableModZip>false</EnableModZip>
+    <EnableModDeploy>false</EnableModDeploy>
+    <IgnoreGamePathPrompts>true</IgnoreGamePathPrompts>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,3 +16,5 @@
   </ItemGroup>
 
 </Project>
+
+
