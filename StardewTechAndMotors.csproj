@@ -6,23 +6,13 @@
     <Nullable>enable</Nullable>
     <AssemblyName>StardewTechAndMotors</AssemblyName>
     <RootNamespace>StardewTechAndMotors</RootNamespace>
-    
-    <!-- Evitar búsqueda estricta de la ruta del juego en GitHub Actions -->
     <EnableModZip>false</EnableModZip>
     <EnableModDeploy>false</EnableModDeploy>
-    <GamePath>./dummy_game_path</GamePath>
+    <IgnoreGamePathPrompts>true</IgnoreGamePathPrompts>
   </PropertyGroup>
 
-  <!-- Referencias del SDK oficial de SMAPI -->
   <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.1" />
+    <PackageReference Include="Pathoschild.Stardew.ModFrameworkRef" Version="4.0.0" />
   </ItemGroup>
-
-  <!-- Crear directorio falso si no existe para engañar al sistema de build -->
-  <Target Name="CreateDummyGameFolder" BeforeTargets="BeforeBuild">
-    <MakeDir Directories="$(GamePath)" />
-    <Touch Files="$(GamePath)/Stardew Valley.dll" AlwaysCreate="true" />
-    <Touch Files="$(GamePath)/StardewModdingAPI.dll" AlwaysCreate="true" />
-  </Target>
 
 </Project>
