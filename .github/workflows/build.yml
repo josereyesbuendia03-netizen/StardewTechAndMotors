@@ -1,0 +1,36 @@
+name: Build Stardew Mod
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/dotnet/setup-dotnet@v4
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: Build Mod
+      run: dotnet build StardewTechAndMotors.csproj -c Release
+
+    - name: Prepare Mod Zip
+      run: |
+        mkdir -p StardewTechAndMotors
+        cp bin/Release/net6.0/StardewTechAndMotors.dll StardewTechAndMotors/
+        cp bin/Release/net6.0/StardewTechAndMotors.pdb StardewTechAndMotors/ || true
+        cp manifest.json StardewTechAndMotors/
+        zip -r StardewTechAndMotors.zip StardewTechAndMotors/
+
+    - name: Upload Mod Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: StardewTechAndMotors-Mod
+        path: StardewTechAndMotors.zip
