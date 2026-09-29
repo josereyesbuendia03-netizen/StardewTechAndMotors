@@ -19,7 +19,7 @@ jobs:
         dotnet-version: '6.0.x'
 
     - name: Build Mod
-      run: dotnet build StardewTechAndMotors.csproj -c Release /p:EnableModZip=false /p:EnableModDeploy=false /p:IgnoreGamePathPrompts=true
+      run: dotnet build StardewTechAndMotors.csproj -c Release /p:IgnoreGamePathPrompts=true
 
     - name: Prepare Mod Zip
       run: |
